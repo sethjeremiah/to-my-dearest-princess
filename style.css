@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f7f1e8;
+    font-family: Georgia, serif;
+}
+
+main {
+    text-align: center;
+}
+
+h1 {
+    font-weight: normal;
+    font-size: 32px;
+}
