@@ -13,7 +13,12 @@ body {
     overflow-x: hidden;
 
     background:
-        radial-gradient(circle at 50% 35%, #fffdfb 0%, #f9f1ed 55%, #f3e7e2 100%);
+        radial-gradient(
+            circle at 50% 35%,
+            #fffdfb 0%,
+            #f9f1ed 55%,
+            #f3e7e2 100%
+        );
 
     font-family: Georgia, "Times New Roman", serif;
     color: #493b3b;
@@ -32,6 +37,8 @@ body {
     gap: 30px;
 
     padding: 50px;
+
+    position: relative;
 }
 
 /* =========================
@@ -236,6 +243,7 @@ body {
 }
 
 /* Main tulip — upper center */
+
 .t1 {
     left: 175px;
     top: 105px;
@@ -244,7 +252,8 @@ body {
     --rotation: -7deg;
 }
 
-/* Left tulip — overlaps main flower cluster */
+/* Left tulip */
+
 .t2 {
     left: 75px;
     top: 230px;
@@ -253,7 +262,8 @@ body {
     --rotation: -17deg;
 }
 
-/* Right tulip — overlaps main flower cluster */
+/* Right tulip */
+
 .t3 {
     right: 65px;
     top: 210px;
@@ -402,7 +412,8 @@ body {
 
     opacity: 0;
 
-    animation: messageAppear 1.2s ease 4.8s forwards;
+    animation:
+        messageAppear 1.2s ease 4.8s forwards;
 }
 
 .eyebrow {
@@ -433,7 +444,8 @@ body {
 
     color: #b87878;
 
-    animation: arrowFloat 2s ease-in-out infinite;
+    animation:
+        arrowFloat 2s ease-in-out infinite;
 }
 
 /* =========================
@@ -456,6 +468,8 @@ body {
             #f8efeb 35%,
             #fffaf7 100%
         );
+
+    position: relative;
 }
 
 /* =========================
@@ -478,10 +492,9 @@ body {
 
     border-radius: 2px;
 
-    opacity: 0;
+    opacity: 1;
 
-    animation:
-        letterAppear 1.2s ease .3s forwards;
+    transform: translateY(0);
 }
 
 /* =========================
@@ -653,15 +666,64 @@ body {
     }
 }
 
-@keyframes letterAppear {
-    from {
-        opacity: 0;
-        transform: translateY(35px);
+/* =========================
+   SCROLL TRANSITION
+========================= */
+
+/*
+   First screen slowly fades away
+   as the user scrolls down.
+*/
+
+@keyframes bouquetScrollOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
 
-    to {
+    100% {
+        opacity: 0;
+        transform: translateY(-45px) scale(.96);
+    }
+}
+
+/*
+   Letter gently rises into view.
+*/
+
+@keyframes letterScrollIn {
+    0% {
+        opacity: 0;
+        transform: translateY(70px);
+    }
+
+    100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/*
+   Modern browsers:
+   animation follows the scroll position.
+*/
+
+@supports (animation-timeline: view()) {
+
+    .bouquet-page {
+        animation:
+            bouquetScrollOut linear both;
+
+        animation-timeline: view();
+        animation-range: exit 0% 75%;
+    }
+
+    .letter {
+        animation:
+            letterScrollIn linear both;
+
+        animation-timeline: view();
+        animation-range: entry 5% 40%;
     }
 }
 
@@ -727,5 +789,32 @@ body {
         margin-top: 45px;
 
         font-size: 18px;
+    }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .bouquet-page,
+    .letter {
+        animation: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+
+    .flower,
+    .wrapping,
+    .ribbon,
+    .message,
+    .scroll-arrow {
+        animation: none !important;
+        opacity: 1 !important;
     }
 }
