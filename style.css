@@ -1,3 +1,4 @@
+```css
 * {
     margin: 0;
     padding: 0;
@@ -204,7 +205,7 @@ body {
 
 .c1 {
     left: 145px;
-    top: 300px;
+    top: 255px;
 
     --delay: 2.2s;
     --rotation: -4deg;
@@ -212,7 +213,7 @@ body {
 
 .c2 {
     right: 135px;
-    top: 310px;
+    top: 265px;
 
     --delay: 2.35s;
     --rotation: 5deg;
@@ -227,25 +228,28 @@ body {
     z-index: 8;
 }
 
+/* Main tulip — upper center */
 .t1 {
     left: 175px;
-    top: 120px;
+    top: 105px;
 
     --delay: 2.55s;
     --rotation: -7deg;
 }
 
+/* Left tulip — moved outward */
 .t2 {
-    left: 100px;
-    top: 175px;
+    left: 55px;
+    top: 190px;
 
     --delay: 2.7s;
     --rotation: -17deg;
 }
 
+/* Right tulip — slightly higher and outward */
 .t3 {
-    right: 90px;
-    top: 165px;
+    right: 45px;
+    top: 135px;
 
     --delay: 2.85s;
     --rotation: 15deg;
@@ -545,3 +549,4 @@ h1 span {
         font-size: 38px;
     }
 }
+```
