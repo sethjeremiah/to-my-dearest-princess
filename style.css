@@ -272,7 +272,7 @@ body {
     left: 175px;
     top: 295px;
 
-    z-index: 9;
+    z-index: 13;
 
     --delay: 3.05s;
     --rotation: 3deg;
