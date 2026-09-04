@@ -205,7 +205,7 @@ body {
 
 .c1 {
     left: 145px;
-    top: 255px;
+    top: 235px;
 
     --delay: 2.2s;
     --rotation: -4deg;
@@ -213,7 +213,7 @@ body {
 
 .c2 {
     right: 135px;
-    top: 265px;
+    top: 245px;
 
     --delay: 2.35s;
     --rotation: 5deg;
@@ -237,19 +237,19 @@ body {
     --rotation: -7deg;
 }
 
-/* Left tulip — moved outward */
+/* Left tulip — overlaps main flower cluster */
 .t2 {
-    left: 55px;
-    top: 190px;
+    left: 75px;
+    top: 230px;
 
     --delay: 2.7s;
     --rotation: -17deg;
 }
 
-/* Right tulip — slightly higher and outward */
+/* Right tulip — overlaps main flower cluster */
 .t3 {
-    right: 45px;
-    top: 135px;
+    right: 65px;
+    top: 210px;
 
     --delay: 2.85s;
     --rotation: 15deg;
@@ -279,7 +279,7 @@ body {
     position: absolute;
 
     left: 75px;
-    bottom: 45px;
+    bottom: 20px;
 
     width: 370px;
     height: 235px;
@@ -374,7 +374,7 @@ body {
     width: 190px;
 
     left: 165px;
-    bottom: -5px;
+    bottom: -30px;
 
     z-index: 25;
 
