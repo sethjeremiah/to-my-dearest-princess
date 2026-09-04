@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     min-height: 100vh;
     overflow-x: hidden;
@@ -15,6 +19,10 @@ body {
     font-family: Georgia, "Times New Roman", serif;
     color: #493b3b;
 }
+
+/* =========================
+   FIRST SCREEN
+========================= */
 
 .bouquet-page {
     min-height: 100vh;
@@ -385,7 +393,7 @@ body {
 }
 
 /* =========================
-   TEXT
+   FIRST SCREEN MESSAGE
 ========================= */
 
 .message {
@@ -399,7 +407,7 @@ body {
 }
 
 .eyebrow {
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 
     font-family: Arial, sans-serif;
     font-size: 12px;
@@ -409,26 +417,142 @@ body {
     color: #9d7c7c;
 }
 
-h1 {
-    font-size: 48px;
-    line-height: 1.08;
-    font-weight: 400;
+.scroll-text {
+    font-size: 25px;
+    line-height: 1.5;
 
-    margin-bottom: 28px;
-}
-
-h1 span {
     font-style: italic;
-    color: #b87878;
+
+    color: #6f5b5b;
 }
 
-.subtitle {
-    font-family: Arial, sans-serif;
+.scroll-arrow {
+    margin-top: 28px;
 
+    font-family: Arial, sans-serif;
+    font-size: 22px;
+
+    color: #b87878;
+
+    animation: arrowFloat 2s ease-in-out infinite;
+}
+
+/* =========================
+   LETTER SECTION
+========================= */
+
+.letter-section {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 120px 30px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f3e7e2 0%,
+            #f8efeb 35%,
+            #fffaf7 100%
+        );
+}
+
+/* =========================
+   LETTER
+========================= */
+
+.letter {
+    width: 100%;
+    max-width: 720px;
+
+    padding: 80px 85px;
+
+    background:
+        rgba(255, 253, 251, .88);
+
+    box-shadow:
+        0 20px 60px rgba(110, 80, 80, .08);
+
+    border: 1px solid rgba(190, 155, 155, .15);
+
+    border-radius: 2px;
+
+    opacity: 0;
+
+    animation:
+        letterAppear 1.2s ease .3s forwards;
+}
+
+/* =========================
+   LETTER OPENING
+========================= */
+
+.letter-opening {
+    margin-bottom: 55px;
+
+    font-size: 25px;
+    line-height: 1.5;
+
+    color: #493b3b;
+}
+
+.letter-opening span {
+    font-size: 17px;
+
+    font-style: italic;
+
+    color: #9d7c7c;
+}
+
+/* =========================
+   LETTER PARAGRAPHS
+========================= */
+
+.letter p:not(.letter-opening):not(.closing):not(.signature) {
+    margin-bottom: 28px;
+
+    font-size: 16px;
+    line-height: 1.95;
+
+    color: #665555;
+}
+
+/* =========================
+   CLOSING
+========================= */
+
+.letter .closing {
+    margin-top: 55px;
+    margin-bottom: 45px;
+
+    font-size: 23px;
+    line-height: 1.5;
+
+    font-style: italic;
+
+    color: #9d6868;
+}
+
+/* =========================
+   SIGNATURE
+========================= */
+
+.signature {
     font-size: 15px;
     line-height: 1.8;
 
     color: #7b6969;
+}
+
+.signature strong {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 18px;
+    font-weight: 400;
+
+    color: #493b3b;
 }
 
 /* =========================
@@ -518,6 +642,30 @@ h1 span {
     }
 }
 
+@keyframes arrowFloat {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: .6;
+    }
+
+    50% {
+        transform: translateY(7px);
+        opacity: 1;
+    }
+}
+
+@keyframes letterAppear {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* =========================
    MOBILE
 ========================= */
@@ -543,10 +691,43 @@ h1 span {
         max-width: 380px;
 
         text-align: center;
+
+        margin-top: 0;
     }
 
-    h1 {
-        font-size: 38px;
+    .scroll-text {
+        font-size: 22px;
+    }
+
+    .scroll-arrow {
+        margin-top: 22px;
+    }
+
+    .letter-section {
+        padding: 80px 18px;
+    }
+
+    .letter {
+        padding: 55px 28px;
+    }
+
+    .letter-opening {
+        margin-bottom: 40px;
+
+        font-size: 22px;
+    }
+
+    .letter p:not(.letter-opening):not(.closing):not(.signature) {
+        font-size: 15px;
+        line-height: 1.85;
+
+        margin-bottom: 25px;
+    }
+
+    .letter .closing {
+        margin-top: 45px;
+
+        font-size: 21px;
     }
 }
 ```
